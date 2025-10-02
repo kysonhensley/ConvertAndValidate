@@ -1,52 +1,42 @@
-﻿using System.ComponentModel.Design;
+﻿using System;
 
 namespace ConvertAndValidate
 {
     internal class Program
     {
-
-        /*
-        []Take two arguments: a string value to be converted, and an out integer variable to store the result.
-        []Return a boolean indicating if the conversion was successful.
-        []If successful, update the out integer variable with the converted value.
-        []If not, do not update the integer variable.
-        */
-
-        static bool ConvertAndValidate(string convertThis,  ref int toThisNumber)
-        {
-            try
-            {
-                //try to convert and assign ByRef variable
-                toThisNumber = int.Parse(convertThis);
-                //success!
-                return true;
-            }
-            catch (Exception)
-            {
-                //fail
-                return false;
-            }
-            
-           
-        }
-
         static void Main(string[] args)
         {
-            int theNumber = 0;
-            string userData = "w";
+            string userInput;
+            int convertedNumber;
+            bool continueProgram = true;
 
-            if (ConvertAndValidate(userData, ref theNumber) == true)
+            do
             {
-                Console.WriteLine($"{theNumber} + 5 = {theNumber + 5}");
-            }
-            else
-            {
-                Console.WriteLine($"{userData} is not a number.");
-            }
 
+                Console.Write("Please enter a number: ");
+                userInput = Console.ReadLine();
 
-                //Pause
-                Console.Read();
+                if (ValidateAndConvert(userInput, out convertedNumber) == true)
+                {
+                    Console.WriteLine($"You typed: {convertedNumber} and it has successfully been converted to an integer.");
+                }
+                else
+                {
+                    Console.WriteLine($"You typed: {userInput} and it has not been converted to an integer, please try again.");
+                }
+
+                Console.WriteLine("type exit to quit");
+
+                if (userInput.ToLower() == "exit")
+                {
+                    continueProgram = false;
+                }
+            } while (continueProgram == true);
+        }
+
+        static bool ValidateAndConvert(string userInput, out int convertedNumber)
+        {
+            return int.TryParse(userInput, out convertedNumber);
         }
     }
 }
