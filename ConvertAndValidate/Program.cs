@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Kyson Hensley
+//RCET2265
+//Fall 2025
+//ConvertAndValidate Program
+//https://github.com/kysonhensley/ConvertAndValidate.git
+
+using System;
 
 namespace ConvertAndValidate
 {
