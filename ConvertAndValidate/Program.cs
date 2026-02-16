@@ -1,4 +1,10 @@
-﻿namespace ConvertAndValidate
+﻿//Kyson Hensley
+//RCET2265
+//Spring 2026
+//ConvertAndValidate Program
+//https://github.com/kysonhensley/ConvertAndValidate.git
+
+namespace ConvertAndValidate
 {
     internal class Program
     {
